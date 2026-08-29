@@ -1,0 +1,54 @@
+import pandas as pd
+import random
+
+random.seed(42)
+
+students = []
+
+for student_id in range(1, 101):
+
+    attendance = random.randint(60, 98)
+    study_hours = random.randint(1, 8)
+    internal_marks = random.randint(50, 95)
+    assignment_marks = random.randint(55, 100)
+    previous_gpa = round(random.uniform(5.5, 9.5), 2)
+
+    final_gpa = (
+        0.20 * (attendance / 10)
+        + 0.20 * study_hours
+        + 0.02 * internal_marks
+        + 0.01 * assignment_marks
+        + 0.50 * previous_gpa
+    )
+
+    final_gpa += random.uniform(-0.25, 0.25)
+    final_gpa = round(max(0, min(10, final_gpa)), 2)
+
+    students.append([
+        student_id,
+        attendance,
+        study_hours,
+        internal_marks,
+        assignment_marks,
+        previous_gpa,
+        final_gpa
+    ])
+
+data = pd.DataFrame(
+    students,
+    columns=[
+        "student_id",
+        "attendance",
+        "study_hours",
+        "internal_marks",
+        "assignment_marks",
+        "previous_gpa",
+        "final_gpa"
+    ]
+)
+
+data.to_csv("students_100.csv", index=False)
+
+print("100-student dataset created successfully!")
+print(data.head())
+print("\nTotal students:", len(data))
