@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <h1>Student Performance Prediction</h1>
+
+            <p>
+                AI / Machine Learning based student performance analysis
+            </p>
+        </header>
+
+
+        <!-- INPUT SECTION -->
+        <section class="card">
+
+            <h2>Enter Student Details</h2>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Student ID</label>
+                    <input
+                        type="number"
+                        id="studentId"
+                        placeholder="Example: 25"
+                        min="1"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Student Name</label>
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Example: Rahul"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Attendance (%)</label>
+                    <input
+                        type="number"
+                        id="attendance"
+                        placeholder="Example: 85"
+                        min="0"
+                        max="100"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Study Hours</label>
+                    <input
+                        type="number"
+                        id="studyHours"
+                        placeholder="Example: 4"
+                        min="0"
+                        step="0.5"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Internal Marks</label>
+                    <input
+                        type="number"
+                        id="internalMarks"
+                        placeholder="Example: 78"
+                        min="0"
+                        max="100"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Assignment Marks</label>
+                    <input
+                        type="number"
+                        id="assignmentMarks"
+                        placeholder="Example: 85"
+                        min="0"
+                        max="100"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label>Previous GPA</label>
+                    <input
+                        type="number"
+                        id="previousGpa"
+                        placeholder="Example: 8.2"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                    >
+                </div>
+
+            </div>
+
+
+            <button onclick="predictPerformance()">
+                Predict Student Performance
+            </button>
+
+        </section>
+
+
+        <!-- RESULT SECTION -->
+        <section class="card" id="resultSection">
+
+            <h2>Prediction Result</h2>
+
+            <div class="results">
+
+                <div class="result-box">
+                    <h3>Predicted CGPA</h3>
+                    <p id="predictedCgpa">--</p>
+                </div>
+
+
+                <div class="result-box">
+                    <h3>Percentage</h3>
+                    <p id="predictedPercentage">--</p>
+                </div>
+
+
+                <div class="result-box">
+                    <h3>Performance</h3>
+                    <p id="performance">--</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GRAPH SECTION -->
+        <section class="card">
+
+            <h2>Performance Analysis</h2>
+
+            <div class="graph-container">
+
+                <div class="bar-chart">
+
+                    <div class="bar-item">
+
+                        <span>Attendance</span>
+
+                        <div class="bar-background">
+                            <div
+                                class="bar"
+                                id="attendanceBar"
+                            ></div>
+                        </div>
+
+                        <strong id="attendanceValue">0%</strong>
+
+                    </div>
+
+
+                    <div class="bar-item">
+
+                        <span>Internal Marks</span>
+
+                        <div class="bar-background">
+                            <div
+                                class="bar"
+                                id="internalBar"
+                            ></div>
+                        </div>
+
+                        <strong id="internalValue">0%</strong>
+
+                    </div>
+
+
+                    <div class="bar-item">
+
+                        <span>Assignment Marks</span>
+
+                        <div class="bar-background">
+                            <div
+                                class="bar"
+                                id="assignmentBar"
+                            ></div>
+                        </div>
+
+                        <strong id="assignmentValue">0%</strong>
+
+                    </div>
+
+
+                    <div class="bar-item">
+
+                        <span>Previous GPA</span>
+
+                        <div class="bar-background">
+                            <div
+                                class="bar"
+                                id="gpaBar"
+                            ></div>
+                        </div>
+
+                        <strong id="gpaValue">0</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+        <section class="card">
+
+            <h2>How the System Works</h2>
+
+            <div class="steps">
+
+                <div>
+                    <span>1</span>
+                    <p>Enter student information</p>
+                </div>
+
+                <div>
+                    <span>2</span>
+                    <p>Machine Learning model analyzes the data</p>
+                </div>
+
+                <div>
+                    <span>3</span>
+                    <p>Final CGPA is predicted</p>
+                </div>
+
+                <div>
+                    <span>4</span>
+                    <p>Performance is displayed graphically</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Student Performance Prediction System
+            </p>
+
+            <p>
+                Built using Python, Machine Learning, HTML, CSS and JavaScript
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
